@@ -1,9 +1,10 @@
 import { Router } from "express";
-import { getIndex, getPing } from "../controllers/index.controllers";
+import { getIndex, getPing } from '../controllers/index.controllers.js';
 
 const router = Router();
 
-router.get("/", (req, res) => res.send("Hola mundo desde API"));
-router.get("/ping", (req, res) => res.send("PONG"));
+router.get('/', getIndex);
+
+router.get('/ping',getPing);
 
 export default router;
