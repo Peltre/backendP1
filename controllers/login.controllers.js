@@ -7,5 +7,9 @@ export const login = async (req, res) => {
     .query('select * from usuario where userName = @userName');
     // console.log(data.recordset);
     let isLogin = (data.recordset[0].passwordd === req.body.passwordd);
-    res.status(200).json({isLogin: isLogin});
+    if(isLogin) {
+        res.status(200).json({ isLogin: isLogin, user: data.recordset[0] });
+    } else {
+        res.status(200).json({ isLogin: isLogin, user: {} });
+    }
 }
