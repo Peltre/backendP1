@@ -1,4 +1,4 @@
-import { generateSalt, hashPassword } from './utils/password.utils.js';
+import { generateSalt, hashPassword } from '../utils/password.utils.js';
 
 function runTests() {
     console.log("=== Iniciando pruebas de hashing ===");
