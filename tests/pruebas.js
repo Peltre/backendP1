@@ -11,7 +11,7 @@ function runTests() {
     console.log("\nPrueba 1 - Mismo texto misma sal:");
     console.log("Hash 1:", hash1);
     console.log("Hash 2:", hash2);
-    console.log("Resultado:", hash1 === hash2 ? "✅ Éxito" : "❌ Fallo");
+    console.log("Resultado:", hash1 === hash2 ? "Exito" : "Fallo");
     
     // Prueba 2: Texto ligeramente diferente
     const password2 = "miContraseñaSegura124"; // Cambio de 123 a 124
@@ -19,7 +19,7 @@ function runTests() {
     console.log("\nPrueba 2 - Texto similar:");
     console.log("Hash original:", hash1.substring(0, 20) + "...");
     console.log("Hash modificado:", hash3.substring(0, 20) + "...");
-    console.log("Resultado:", hash1 !== hash3 ? "✅ Éxito" : "❌ Fallo");
+    console.log("Resultado:", hash1 !== hash3 ? "Exito" : "Fallo");
     
     // Prueba 3: Mismo texto con diferente sal
     const salt2 = generateSalt();
@@ -27,12 +27,12 @@ function runTests() {
     console.log("\nPrueba 3 - Mismo texto diferente sal:");
     console.log("Hash con sal 1:", hash1.substring(0, 20) + "...");
     console.log("Hash con sal 2:", hash4.substring(0, 20) + "...");
-    console.log("Resultado:", hash1 !== hash4 ? "✅ Éxito" : "❌ Fallo");
+    console.log("Resultado:", hash1 !== hash4 ? "Exito" : "Fallo");
     
     // Prueba 4: Verificación de contraseña
     const isVerified = (hashPassword(password1, salt1) === hash1);
     console.log("\nPrueba 4 - Verificación:");
-    console.log("Contraseña verificada:", isVerified ? "✅ Éxito" : "❌ Fallo");
+    console.log("Contraseña verificada:", isVerified ? "Exito" : "Fallo");
 }
 
 runTests();
