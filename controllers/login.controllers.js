@@ -1,5 +1,6 @@
 import {sqlConnect, sql} from '../utils/sql.js';
 import { verifyPassword } from '../utils/passwordUtils.js';
+import jwt from "jsonwebtoken";
 
 export const login = async (req, res) => {
     try {
@@ -16,6 +17,9 @@ export const login = async (req, res) => {
         const isLogin = verifyPassword(req.body.password, user.passwordd, user.salt);
         
         if (isLogin) {
+            const token = jwt.sign({ sub: data.recordset[0].id }, process.env.JWT, {
+                expiresIn: "1h",
+            })
             res.status(200).json({ isLogin: isLogin, user: user });
         } else {
             res.status(200).json({ isLogin: false, user: {} });
