@@ -17,7 +17,7 @@ function runTests() {
     const password2 = "miContraseñaSegura124"; // Cambio de 123 a 124
     const hash3 = hashPassword(password2, salt1);
     console.log("\nPrueba 2 - Texto similar:");
-    console.log("Hash original:", hash1.substring(0, 20) + "...");
+    console.log("Hash original:", hash1.substring(0, 20)    + "...");
     console.log("Hash modificado:", hash3.substring(0, 20) + "...");
     console.log("Resultado:", hash1 !== hash3 ? "Exito" : "Fallo");
     
