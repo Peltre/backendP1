@@ -10,8 +10,15 @@ validateJWT.use((req, res, next) => {
         return;
     }
     if (token.startsWith("Bearer")) {
-        token = token.split(" ");
+        token = token.split(" ")[1];
     }
-    
 
-})
+    jwt.verify(token, process.env.JWT, (e, decoded) => {
+        if (e) {
+            res.status(401).json({ msg: "mal token " + e.message });
+        } else {
+            req.decoded = decoded;
+            next();
+        }
+    });
+});
